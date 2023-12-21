@@ -1,0 +1,15 @@
+{
+    "name": "user/colocando-imagem-bd",
+    "autoload": {
+        "psr-4": {
+            "User\\ColocandoImagemBd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Artur Mineiro",
+            "email": "105992706+ArturMineiro@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

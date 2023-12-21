@@ -23,29 +23,20 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|max:2048', // Validação básica
+            'images.*' => 'required|image|max:2048', // Validação para múltiplos arquivos
         ]);
-   // Obtendo o arquivo
-   $file = $request->file('image');
-
-   // Gerando um nome único para o arquivo
-   $filename = time() . '_' . $file->getClientOriginalName();
-
-   // Definindo o caminho da pasta dentro de 'public'
-   $destinationPath = public_path('uploaded_images');
-
-   // Movendo o arquivo para a pasta desejada
-   $file->move($destinationPath, $filename);
-
-   // Salvar o caminho no banco de dados ou outra lógica necessária
-   $image = new Image();
-   $image->image_path = 'uploaded_images/' . $filename; // Salve apenas a parte relativa do caminho
-   $image->save();
-
-   return back()->with('success', 'Imagem enviada com sucesso!');
-
-}
+    
+        foreach ($request->file('images') as $file) {
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('uploaded_images');
+            $file->move($destinationPath, $filename);
+    
+            $image = new Image();
+            $image->image_path = 'uploaded_images/' . $filename;
+            $image->save();
+        }
+    
+        return back()->with('success', 'Imagens enviadas com sucesso!');
+    }
     }
 
-
-    

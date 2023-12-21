@@ -4,7 +4,8 @@
     @csrf
     <div>
         <label for="image">Escolha uma imagem:</label>
-        <input type="file" name="image" id="image" required>
+        <input type="file" name="images[]" id="image" multiple required>
+
     </div>
     <button type="submit">Enviar</button>
 </form>
