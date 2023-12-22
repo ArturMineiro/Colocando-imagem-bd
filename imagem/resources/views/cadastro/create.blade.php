@@ -1,18 +1,25 @@
-<form action="{{ route('cadastro.store') }}" method="POST">
-@csrf <!-- {{ csrf_field() }} -->
-    <div>
-        <label for="nome">Coloque seu nome</label>
-        <input type="text" name="nome" id="nome" required>
-        <br>
-        <label for="telefone">Coloque seu telefone</label>
-        <input type="text" name="telefone" id="telefone" required>
-        <br>
-        <label for="email">Coloque seu email</label>
-        <input type="text" name="email" id="email" required>
-    </div>
-    <button type="submit">Enviar</button>
-</form>
+@extends('layout')
 
-@if(session('success'))
-    <p>{{ session('success') }}</p>
-@endif
+@section('title', 'Título da Página')
+@section('header', 'Formulario')
+@section('content')
+    <!-- Conteúdo específico desta página vai aqui -->
+    <form action="{{ route('cadastro.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" name="nome" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" class="form-control" name="telefone" id="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+@endsection
