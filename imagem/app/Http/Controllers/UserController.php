@@ -32,9 +32,9 @@ class UserController extends Controller
         ]);
         
     $user = new User;
-    $user->name = $request->input('nome'); // Use 'nome' aqui
+    $user->nome = $request->input('nome'); // Use 'nome' aqui
     $user->email = $request->input('email');
-    $user->numero = $request->input('telefone'); // Use 'telefone' aqui
+    $user->telefone = $request->input('telefone'); // Use 'telefone' aqui
     $user->save();
 
     return back()->with('success', 'Dados enviados com sucesso!');
