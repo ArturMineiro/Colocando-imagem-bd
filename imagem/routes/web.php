@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\imageController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +35,8 @@ Route::get('/produto',[ProdutoController::class, 'index']
  Route::get('/image/upload', [ImageController::class, 'create']);
  Route::post('/image/upload', [ImageController::class, 'store'])->name('image.store');
  Route::get('/images', [ImageController::class, 'index'])->name('image.index');
+
+
+ Route::get('/cadastro/criar', [UserController::class, 'create']);
+ Route::post('/cadastro/criar', [UserController::class, 'store'])->name('cadastro.store');
+ Route::get('/apresenta-cadastro', [UserController::class, 'index'])->name('cadastro.index');
