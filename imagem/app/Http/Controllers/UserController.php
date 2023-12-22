@@ -22,6 +22,14 @@ class UserController extends Controller
         return view('cadastro.create');
     }
 
+    public function show()
+    {
+        $users = User::all(); // Recupera todos os usuários da tabela 'users'
+    
+    return view('cadastro.show', ['users' => $users]);
+    }
+
+
     // Processa o upload da imagem
     public function store(Request $request)
     {

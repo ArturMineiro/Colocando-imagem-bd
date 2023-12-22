@@ -40,3 +40,4 @@ Route::get('/produto',[ProdutoController::class, 'index']
  Route::get('/cadastro/criar', [UserController::class, 'create']);
  Route::post('/cadastro/criar', [UserController::class, 'store'])->name('cadastro.store');
  Route::get('/apresenta-cadastro', [UserController::class, 'index'])->name('cadastro.index');
+ Route::get('/mostra-cadastro',[UserController::class, 'show'])->name('cadastro.show');
